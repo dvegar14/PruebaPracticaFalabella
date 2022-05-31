@@ -14,37 +14,16 @@ public class Utils {
     private static RequestSpecification request;
     private static Response response;
 
-    public static Response getResponse(String contentType, String endpoint, serviceMethods metodo) {
+    public static Response getResponse(String contentType, String endpoint, methods metodo) {
         if (contentType.equalsIgnoreCase("JSON")) {
             request = given().header("Content-Type", "application/json");
         } else if (contentType.equalsIgnoreCase("XML")) {
             request = given().header("Content-Type", "application/xml");
         }
 
-        if(metodo.equals(serviceMethods.GET)){
+        if (metodo.equals(methods.GET)) {
             response = request.when().get(endpoint);
-        }else if(metodo.equals(serviceMethods.POST)){
-            response = request.when().post(endpoint);
-        }
-
-        if (response.getStatusCode() == 200) {
-            return response;
-        } else {
-            return null;
-        }
-    }
-
-
-    public static Response getResponseSetHeader(String contentType, String endpoint, String atributoHeader, String valorHeader, serviceMethods metodo) {
-        if (contentType.equalsIgnoreCase("JSON")) {
-            request = given().headers("Content-Type", "application/json", atributoHeader, valorHeader);
-        } else if (contentType.equalsIgnoreCase("XML")) {
-            request = given().headers("Content-Type", "application/xml", atributoHeader, valorHeader);
-        }
-
-        if(metodo.equals(serviceMethods.GET)){
-            response = request.when().get(endpoint);
-        }else if(metodo.equals(serviceMethods.POST)){
+        } else if (metodo.equals(methods.POST)) {
             response = request.when().post(endpoint);
         }
 
@@ -68,7 +47,7 @@ public class Utils {
         return properties;
     }
 
-    public enum serviceMethods {
+    public enum methods {
         GET,
         POST,
         PUT,

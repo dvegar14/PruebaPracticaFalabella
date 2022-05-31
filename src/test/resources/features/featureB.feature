@@ -1,4 +1,3 @@
-@featureB
 Feature: Feature B
 
   @debug @featureB @omit

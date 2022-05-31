@@ -1,4 +1,3 @@
-@featureC
 Feature: Feature C
 
   @new @featureC @omit
