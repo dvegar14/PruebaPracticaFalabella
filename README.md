@@ -1,3 +1,3 @@
-# Prueba Tecnica para Falabella
+# Prueba Técnica para Falabella
 ## Proyecto con Java + Cucumber + RestAssured
 

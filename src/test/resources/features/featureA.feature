@@ -1,3 +1,4 @@
+@featureA
 Feature: Feature A
 
   @ready @featureA
